@@ -20,20 +20,20 @@ export default function TaskForm({ onAdd }) {
   };
 
   return (
-    <form onSubmit={submit} className="flex gap-2 mb-4">
+    <form onSubmit={submit} className="flex flex-col sm:flex-row gap-2 mb-4">
       <input
-        className="flex-1 border rounded px-3 py-2 text-sm"
+        className="flex-1 border rounded px-3 py-2 text-sm w-full"
         placeholder="Task title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <input
         type="date"
-        className="border rounded px-3 py-2 text-sm"
+        className="border rounded px-3 py-2 text-sm w-full sm:w-auto"
         value={dueDate}
         onChange={(e) => setDueDate(e.target.value)}
       />
-      <button className="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-amber-300 hover:text-black">
+      <button className="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-amber-300 hover:text-black w-full sm:w-auto">
         Add
       </button>
     </form>

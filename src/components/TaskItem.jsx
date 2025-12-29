@@ -16,17 +16,17 @@ export default function TaskItem({ task, onUpdate, onDelete }) {
           onClick={() =>
             onUpdate({
               ...task,
-              status: task.status === "Pending" ? "Done" : "Pending"
+              status: task.status === "Pending" ? "Done" : "Pending",
             })
           }
         >
-         👍
+          👍
         </button>
         <button
           className="text-xs px-2 py-1 border rounded text-red-600"
           onClick={() => onDelete(task.id)}
         >
-         ❌
+          ❌
         </button>
       </div>
     </li>

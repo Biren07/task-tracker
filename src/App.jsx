@@ -33,30 +33,36 @@ export default function App() {
     );
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-400 to-cyan-400 p-6">
-      <div className="max-w-xl mx-auto bg-gradient-to-r from-blue-200 to-cyan-200 rounded-lg shadow p-6">
-        <h1 className="text-2xl font-semibold mb-10 text-center underline">
+    <div className="min-h-screen bg-gradient-to-r from-indigo-400 to-cyan-400 p-4 sm:p-6">
+      <div className="max-w-xl mx-auto bg-gradient-to-r from-blue-200 to-cyan-200 rounded-lg shadow p-4 sm:p-6">
+        <h1 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-10 text-center underline">
           Task Tracker
         </h1>
 
-        <TaskForm onAdd={(task) => setTasks([...tasks, task])} />
+        <div className="mb-4 sm:mb-6">
+          <TaskForm onAdd={(task) => setTasks([...tasks, task])} />
+        </div>
 
-        <Filters
-          status={statusFilter}
-          onStatusChange={setStatusFilter}
-          search={search}
-          onSearch={setSearch}
-          sortBy={sortBy}
-          onSortChange={setSortBy}
-        />
+        <div className="mb-4 sm:mb-6">
+          <Filters
+            status={statusFilter}
+            onStatusChange={setStatusFilter}
+            search={search}
+            onSearch={setSearch}
+            sortBy={sortBy}
+            onSortChange={setSortBy}
+          />
+        </div>
 
-        <TaskList
-          tasks={filteredTasks}
-          onUpdate={(updated) =>
-            setTasks(tasks.map((t) => (t.id === updated.id ? updated : t)))
-          }
-          onDelete={(id) => setTasks(tasks.filter((t) => t.id !== id))}
-        />
+        <div>
+          <TaskList
+            tasks={filteredTasks}
+            onUpdate={(updated) =>
+              setTasks(tasks.map((t) => (t.id === updated.id ? updated : t)))
+            }
+            onDelete={(id) => setTasks(tasks.filter((t) => t.id !== id))}
+          />
+        </div>
       </div>
     </div>
   );

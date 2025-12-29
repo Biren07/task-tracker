@@ -1,15 +1,15 @@
-export default function Filter({
+export default function Filters({
   status,
   onStatusChange,
   search,
   onSearch,
   sortBy,
-  onSortChange
+  onSortChange,
 }) {
   return (
-    <div className="flex gap-2 mb-4">
+    <div className="flex flex-col sm:flex-row gap-2 mb-4">
       <select
-        className="border rounded px-2 py-2"
+        className="border rounded px-2 py-2 w-full sm:w-auto"
         value={status}
         onChange={(e) => onStatusChange(e.target.value)}
       >
@@ -19,15 +19,15 @@ export default function Filter({
       </select>
 
       <input
-        className="flex-1 border rounded px-3 py-2 text-sm"
         type="text"
         placeholder="Search tasks..."
+        className="border rounded px-3 py-2 text-sm w-full"
         value={search}
         onChange={(e) => onSearch(e.target.value)}
       />
 
       <select
-        className="border rounded px-2 py-2"
+        className="border rounded px-2 py-2 w-full sm:w-auto"
         value={sortBy}
         onChange={(e) => onSortChange(e.target.value)}
       >
